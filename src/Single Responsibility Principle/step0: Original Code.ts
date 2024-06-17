@@ -1,7 +1,7 @@
 // * Single Responsibility Principle
 // * definition: "Each class in your system should have only one responsibility."
-// * purpose: "to make the software easier to implement and prevent bugs"
 // * conclusion: "separate by function, class, module, package, etc."
+// * purpose: "to make the software easier to implement and prevent bugs"
 
 // ! Single Responsibility Principle should apply to diff scope based on the context
 // ! Ex: separate by function, class, module, package, etc.

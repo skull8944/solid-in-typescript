@@ -1,7 +1,7 @@
 // * Open-Closed Principle
 // * definition: "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification";
-// * purpose: to make the code more maintainable and flexible
 // * conclusion: use abstract class or interface to make the code open for extension and closed for modification
+// * purpose: to make the code more maintainable and flexible
 
 // ! Step1: separate regional logic by function
 

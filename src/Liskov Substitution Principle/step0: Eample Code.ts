@@ -1,7 +1,7 @@
 // * Liskov Substitution Principle
 // * definition: "objects of a superclass shall be replaceable with objects of its subclasses without breaking the application"
-// * purpose: to prevent unexpected behavior when replacing a superclass object with a subclass object
 // * conclusion: if a subclass can't replace a superclass object, then the inheritance relationship is wrong
+// * purpose: to prevent unexpected behavior when replacing a superclass object with a subclass object
 
 class WistronEmployee {
   constructor(id: string, name: string) {
