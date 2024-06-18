@@ -24,15 +24,6 @@ class LAStrategy implements IRegionStrategy {
 
 // * 透過 Factory Pattern 來建立不同Region的 Strategy
 // * 避免直接使用new來建立物件，減少實作個別物件於主要程式碼中，提高程式碼的可讀性、耦合度、維護性
-// * 常見的資料夾結構:
-// * - strategies
-// *   - IRegionStrategy.ts
-// *   - LA.strategy.ts
-// *   - NA.strategy.ts
-// *   - ...
-// * - factories
-// *   - RegionStrategy.factory.ts
-// * - main.ts
 class RegionStrategyFactory {
   static getRegionStrategy(region: "LA" | "NA") {
     switch (region) {
@@ -45,6 +36,16 @@ class RegionStrategyFactory {
     }
   }
 }
+
+// * 常見的資料夾結構:
+// * - strategies
+// *   - IRegionStrategy.ts
+// *   - LA.strategy.ts
+// *   - NA.strategy.ts
+// *   - ...
+// * - factories
+// *   - RegionStrategy.factory.ts
+// * - main.ts
 
 export const step3 = (region: "LA" | "NA") => {
   console.log(`doing logic`);

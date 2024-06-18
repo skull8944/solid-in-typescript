@@ -7,13 +7,6 @@
 // * Step2: 引入Strategy Pattern來拆分職責，讓程式碼更容易擴展
 
 // * 透過實作 RegionStrategy 來拆分不同區域的邏輯
-// * 常見的資料夾結構:
-// * - strategies
-// *   - IRegionStrategy.ts
-// *   - LA.strategy.ts
-// *   - NA.strategy.ts
-// *   - ...
-// * - main.ts
 interface IRegionStrategy {
   doLogic(): void;
 }
@@ -30,10 +23,18 @@ class LAStrategy implements IRegionStrategy {
   }
 }
 
+// * 常見的資料夾結構:
+// * - strategies
+// *   - IRegionStrategy.ts
+// *   - LA.strategy.ts
+// *   - NA.strategy.ts
+// *   - ...
+// * - main.ts
+
 export const step2 = (region: "LA" | "NA") => {
   console.log(`doing logic`);
 
-  // ! 現在仍需知道如何在這裡取得對應的strategy
+  // ! 現在仍需知道如何在這裡建立對應的strategy instance
   let strategy: IRegionStrategy;
   switch (region) {
     case "LA":

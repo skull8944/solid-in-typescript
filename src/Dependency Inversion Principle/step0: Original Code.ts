@@ -35,10 +35,11 @@ export class Programmer {
 }
 
 export const step0 = () => {
+  const programmer = new Programmer();
+
   const computer = new Computer();
   const laptop = new Laptop();
   const tablet = new Tablet();
-  const programmer = new Programmer();
 
   // ! Programmer不應該依賴於低階模組Computer, Laptop, Tablet
   programmer.code(computer);
