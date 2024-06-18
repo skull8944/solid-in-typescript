@@ -6,7 +6,7 @@
 
 // * Step2: 引入Strategy Pattern來拆分職責，讓程式碼更容易擴展
 
-// * 透過實作 RegionStrategy 來拆分不同區域的邏輯
+// * 透過實作 IRegionStrategy 來拆分不同區域的邏輯
 interface IRegionStrategy {
   doLogic(): void;
 }
