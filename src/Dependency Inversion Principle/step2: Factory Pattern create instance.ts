@@ -42,7 +42,7 @@ export class Programmer {
 }
 
 // * 使用Factory Pattern來建立物件實例
-// * 避免直接使用new來建立物件，減少實作個別物件於主要程式碼中
+// * 避免主程式直接使用new來建立物件，減少實作個別物件於主要程式碼中
 // * 提高程式碼的可讀性、耦合度、維護性
 export class ProgrammableFactory {
   static getProgrammable(type: string) {
