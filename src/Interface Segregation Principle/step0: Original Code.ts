@@ -3,12 +3,12 @@
 // * conclusion: split large interfaces into smaller, more specific ones so that clients will only have to know about the methods that are of interest to them
 // * purpose: to prevent a class from implementing an interface that it doesn't use
 
-export interface Engineer {
+export interface IEngineer {
   code(): void;
   codeReview(): void;
 }
 
-export class ResearchAndDevelopment implements Engineer {
+export class ResearchAndDevelopment implements IEngineer {
   code() {
     console.log("RD Coding...");
   }
@@ -18,7 +18,7 @@ export class ResearchAndDevelopment implements Engineer {
   }
 }
 
-export class TechLead implements Engineer {
+export class TechLead implements IEngineer {
   code() {
     console.log("TL Coding...");
   }
@@ -28,7 +28,7 @@ export class TechLead implements Engineer {
   }
 }
 
-const step0 = () => {
+export const step0 = () => {
   const rd = new ResearchAndDevelopment();
   const tl = new TechLead();
 

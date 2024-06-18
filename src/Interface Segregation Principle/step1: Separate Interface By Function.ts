@@ -29,7 +29,7 @@ class TechLead implements ICoder, ICodeReviewer {
   }
 }
 
-const step0 = () => {
+export const step0 = () => {
   const rd = new ResearchAndDevelopment();
   const tl = new TechLead();
 
