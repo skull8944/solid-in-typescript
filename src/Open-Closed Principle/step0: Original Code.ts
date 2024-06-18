@@ -6,6 +6,7 @@
 export const step0 = (region: "LA" | "NA") => {
   console.log(`doing logic`);
 
+  // ! If we want to add more regions, we need to modify this function
   switch (region) {
     case "LA":
       console.log(`LA logic`);

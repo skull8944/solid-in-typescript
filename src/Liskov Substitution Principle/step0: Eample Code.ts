@@ -41,10 +41,13 @@ const liskov = () => {
 
   // Cathy is doing health check
   healthCheck(Cathy);
+
   // Asce is doing health check
   healthCheck(Asce);
+
   // Jay is doing health check
   healthCheck(Jay);
+
   // ! Error: OtherEmployee is not type of WistronEmployee or not subtype of WistronEmployee
   healthCheck(Other);
 };

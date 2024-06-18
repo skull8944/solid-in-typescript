@@ -17,7 +17,7 @@ class DB {
 class Dao {
   private readonly db: DB;
   constructor() {
-    // ! using container to resolve DB instance
+    // * using container to resolve DB instance
     this.db = container.resolve(DB);
   }
 
@@ -29,7 +29,7 @@ class Dao {
 class Service {
   private readonly dao: Dao;
   constructor() {
-    // ! using container to resolve Dao instance
+    // * using container to resolve Dao instance
     this.dao = container.resolve(Dao);
   }
 
@@ -41,7 +41,7 @@ class Service {
 class Controller {
   private readonly service: Service;
   constructor() {
-    // ! using container to resolve Service instance
+    // * using container to resolve Service instance
     this.service = container.resolve(Service);
   }
 
@@ -50,7 +50,7 @@ class Controller {
   }
 }
 
-// ! register all classes to container
+// * register all classes to container
 container.register(DB, { useClass: DB });
 container.register(Dao, { useClass: Dao });
 container.register(Service, { useClass: Service });

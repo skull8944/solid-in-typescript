@@ -6,7 +6,7 @@
 // ! Single Responsibility Principle should apply to diff scope based on the context
 // ! Ex: separate by function, class, module, package, etc.
 
-// ! step1: separate by domain responsibility
+// * step1: separate by domain responsibility
 
 class Account {
   constructor(id: string) {
@@ -38,7 +38,8 @@ class AccountService {
     const { id, img } = body;
     const account = new Account(id);
 
-    // ! Right way to do it
+    // * now we don't need to write uploadImage logic here
+    // * we just need to call the service
     account.imageUrl = await this.fileService.uploadImage(img);
 
     await this.dao.save(account);

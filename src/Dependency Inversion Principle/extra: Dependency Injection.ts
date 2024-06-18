@@ -15,7 +15,7 @@ export class DB {
 
 @injectable()
 export class Dao {
-  // ! using constructor injection
+  // * using constructor injection
   constructor(private readonly db: DB) {}
 
   test() {
@@ -25,7 +25,7 @@ export class Dao {
 
 @injectable()
 export class Service {
-  // ! using constructor injection
+  // * using constructor injection
   constructor(private readonly dao: Dao) {}
 
   test() {
@@ -35,7 +35,7 @@ export class Service {
 
 @injectable()
 export class Controller {
-  // ! using constructor injection
+  // * using constructor injection
   constructor(private readonly service: Service) {}
 
   test() {

@@ -3,7 +3,7 @@
 // *             "abstractions should not depend on details. Details should depend on abstractions."
 // * purpose: to make your architecture more flexible
 
-// ! step1: Extract Interface to make it more flexible
+// * step1: Extract Interface to make it more flexible
 
 export interface IProgrammable {
   coding(): void;
@@ -34,7 +34,7 @@ export class Tablet implements IProgrammable {
 }
 
 export class Programmer {
-  // ! now only depend on IProgrammable interface
+  // * now only depend on IProgrammable interface
   code(device: IProgrammable) {
     device.coding();
   }
@@ -46,7 +46,6 @@ export const step1 = () => {
   const tablet = new Tablet();
   const programmer = new Programmer();
 
-  // ! Programmer should not depend on low-level module Computer, Laptop, Tablet
   programmer.code(computer);
   programmer.code(laptop);
   programmer.code(tablet);

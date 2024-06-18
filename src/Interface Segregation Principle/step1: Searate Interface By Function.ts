@@ -3,7 +3,7 @@
 // * conclusion: split large interfaces into smaller, more specific ones so that clients will only have to know about the methods that are of interest to them
 // * purpose: to prevent a class from implementing an interface that it doesn't use
 
-// ! step1: Separate Interface By Function
+// * step1: Separate Interface By Function
 
 export interface ICoder {
   code(): void;
@@ -34,7 +34,7 @@ const step0 = () => {
   const tl = new TechLead();
 
   rd.code();
-  // ! RD should not be able to do code review
+  // * now RD can't do code review
   rd.codeReview();
 
   tl.code();

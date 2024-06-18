@@ -40,6 +40,8 @@ export class Programmer {
   }
 }
 
+// * Factory Pattern
+// * hide the instance creation logic inside the factory
 export class ProgrammableFactory {
   static getProgrammable(type: string) {
     switch (type) {
@@ -58,7 +60,8 @@ export class ProgrammableFactory {
 export const step2 = () => {
   const programmer = new Programmer();
 
-  // ! use Factory Pattern to create instance
+  // * use Factory Pattern to create instance
+  // * now Programmer doesn't need to know how to create instance
   const computer = ProgrammableFactory.getProgrammable("computer");
   const laptop = ProgrammableFactory.getProgrammable("laptop");
   const tablet = ProgrammableFactory.getProgrammable("tablet");

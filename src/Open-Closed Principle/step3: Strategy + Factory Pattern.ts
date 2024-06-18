@@ -5,23 +5,24 @@
 
 // ! step3: separate regional logic by Factory + Strategy Pattern
 
-interface RegionStrategy {
+interface IRegionStrategy {
   doLogic(): void;
 }
 
-class NAStrategy implements RegionStrategy {
+class NAStrategy implements IRegionStrategy {
   doLogic(): void {
     console.log(`NA logic`);
   }
 }
 
-class LAStrategy implements RegionStrategy {
+class LAStrategy implements IRegionStrategy {
   doLogic(): void {
     console.log(`LA logic`);
   }
 }
 
-// Use Factory Pattern to create strategy
+// * Use Factory Pattern to create strategy
+// * hide the logic of creating strategy inside the factory
 class RegionStrategyFactory {
   static getRegionStrategy(region: "LA" | "NA") {
     switch (region) {
@@ -35,9 +36,20 @@ class RegionStrategyFactory {
   }
 }
 
+// * now folder structure would be like:
+// * - strategies
+// *   - IRegionStrategy.ts
+// *   - NA.strategy.ts
+// *   - LA.strategy.ts
+// * - factories
+// *   - RegionStrategy.factory.ts
+// * - main.ts
+
 export const step3 = (region: "LA" | "NA") => {
   console.log(`doing logic`);
 
+  // * now we don't need to know how to create the strategy
   const strategy = RegionStrategyFactory.getRegionStrategy(region);
+  // * now we don't need to know the logic of each region
   strategy.doLogic();
 };
