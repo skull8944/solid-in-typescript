@@ -1,21 +1,30 @@
 // * Open-Closed Principle
-// * definition: "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification";
-// * conclusion: use abstract class or interface to make the code open for extension and closed for modification
-// * purpose: to make the code more maintainable and flexible
+// * 開放封閉原則
+// * 定義: "軟體中的物件(類別、模組、函式等等)應該可以擴展，但是不可以修改"
+// * 總結: 使用抽象類別或介面來使程式碼對擴展開放，對修改封閉。
+// * 目的： 增加程式碼的可擴展性，降低程式碼的維護成本
 
-// ! Step2: separate regional logic by Strategy Pattern
+// ! Step2: 引入Strategy Pattern來拆分職責，讓程式碼更容易擴展
 
-interface RegionStrategy {
+// * 透過實作 RegionStrategy 來拆分不同區域的邏輯
+// * 常見的資料夾結構:
+// * - strategies
+// *   - IRegionStrategy.ts
+// *   - LA.strategy.ts
+// *   - NA.strategy.ts
+// *   - ...
+// * - main.ts
+interface IRegionStrategy {
   doLogic(): void;
 }
 
-class NAStrategy implements RegionStrategy {
+class NAStrategy implements IRegionStrategy {
   doLogic(): void {
     console.log(`NA logic`);
   }
 }
 
-class LAStrategy implements RegionStrategy {
+class LAStrategy implements IRegionStrategy {
   doLogic(): void {
     console.log(`LA logic`);
   }
@@ -24,7 +33,7 @@ class LAStrategy implements RegionStrategy {
 export const step2 = (region: "LA" | "NA") => {
   console.log(`doing logic`);
 
-  let strategy: RegionStrategy;
+  let strategy: IRegionStrategy;
   switch (region) {
     case "LA":
       strategy = new LAStrategy();

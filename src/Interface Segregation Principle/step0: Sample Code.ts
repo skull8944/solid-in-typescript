@@ -1,7 +1,8 @@
 // * Interface Segregation Principle
-// * definition: "a client should never be forced to implement an interface that it doesn't use or clients shouldn't be forced to depend on methods they do not use"
-// * conclusion: split large interfaces into smaller, more specific ones so that clients will only have to know about the methods that are of interest to them
-// * purpose: to prevent a class from implementing an interface that it doesn't use
+// * 介面隔離原則
+// * 定義: "一個客戶端不應該被迫實作它不使用的介面，或者說用戶端不應該強迫依賴它不使用的方法"
+// * 總結: 將大型介面拆分成更小、更具體的介面，這樣客戶端只需要知道他們相對應的方法
+// * 目的: 避免客戶端依賴它們不使用的方法，減少不必要的複雜度
 
 export interface Engineer {
   code(): void;
@@ -33,7 +34,7 @@ const step0 = () => {
   const tl = new TechLead();
 
   rd.code();
-  // ! RD should not be able to do code review
+  // ! RD 不應該可以 codeReview
   rd.codeReview();
 
   tl.code();

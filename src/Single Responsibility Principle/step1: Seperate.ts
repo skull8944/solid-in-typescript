@@ -1,12 +1,13 @@
 // * Single Responsibility Principle
-// * definition: "Each class in your system should have only one responsibility."
-// * conclusion: "separate by function, class, module, package, etc."
-// * purpose: "to make the software easier to implement and prevent bugs"
+// * 單一職責原則
+// * 定義: "是指一個類別只負責一件事情"
+// * 總結: 跟據不同類別來拆分職責
+// * 目的: 降低耦合性，提高可讀性，可維護性，可擴展性
 
-// ! Single Responsibility Principle should apply to diff scope based on the context
-// ! Ex: separate by function, class, module, package, etc.
+// ! 單一職責原則應該要根據不同的scope來拆分職責
+// ! Ex: 根據class, function, module, package, project, service, domain, layer, ...
 
-// ! step1: separate by domain responsibility
+// ! step1: 跟據不同的class來拆分職責
 
 class Account {
   constructor(id: string) {

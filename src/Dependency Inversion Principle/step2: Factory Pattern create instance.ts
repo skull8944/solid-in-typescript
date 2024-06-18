@@ -1,9 +1,10 @@
 // * Dependency Inversion Principle
-// * definition: "high-level modules should not depend on low-level modules. Both should depend on abstractions";
-// *             "abstractions should not depend on details. Details should depend on abstractions."
-// * purpose: to make your architecture more flexible
+// * 依賴反轉原則
+// * 定義: "高階模組不應該依賴於低階模組，兩者都應該依賴於抽象，抽象不應該依賴於細節，細節應該依賴於抽象"
+// * 總結: 透過抽象來減少模組之間的耦合度
+// * 目的: 讓架構更具彈性，容易擴展和維護
 
-// ! step2: using Factory Pattern to create instance
+// ! step2: 使用Factory Pattern來建立物件實例
 
 export interface IProgrammable {
   coding(): void;
@@ -34,12 +35,13 @@ export class Tablet implements IProgrammable {
 }
 
 export class Programmer {
-  // ! now only depend on IProgrammable interface
+  // ! 現在只依賴於IProgrammable interface而不是具體的Computer, Laptop, Tablet
   code(device: IProgrammable) {
     device.coding();
   }
 }
 
+// * 使用Factory Pattern來建立物件實例，避免直接使用new來建立物件，減少實作個別物件於主要程式碼中，提高程式碼的可讀性、耦合度、維護性
 export class ProgrammableFactory {
   static getProgrammable(type: string) {
     switch (type) {
@@ -58,7 +60,7 @@ export class ProgrammableFactory {
 export const step2 = () => {
   const programmer = new Programmer();
 
-  // ! use Factory Pattern to create instance
+  // ! 透過Factory Pattern來建立不同的Programmable物件，而不用知道Computer, Laptop, Tablet的實作細節
   const computer = ProgrammableFactory.getProgrammable("computer");
   const laptop = ProgrammableFactory.getProgrammable("laptop");
   const tablet = ProgrammableFactory.getProgrammable("tablet");

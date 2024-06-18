@@ -1,7 +1,8 @@
 // * Dependency Inversion Principle
-// * definition: "high-level modules should not depend on low-level modules. Both should depend on abstractions";
-// *             "abstractions should not depend on details. Details should depend on abstractions."
-// * purpose: to make your architecture more flexible
+// * 依賴反轉原則
+// * 定義: "高階模組不應該依賴於低階模組，兩者都應該依賴於抽象，抽象不應該依賴於細節，細節應該依賴於抽象"
+// * 總結: 透過抽象來減少模組之間的耦合度
+// * 目的: 讓架構更具彈性，容易擴展和維護
 
 export class Computer {
   name: string = "Computer";
@@ -39,7 +40,7 @@ export const step0 = () => {
   const tablet = new Tablet();
   const programmer = new Programmer();
 
-  // ! Programmer should not depend on low-level module Computer, Laptop, Tablet
+  // ! Programmer不應該依賴於低階模組Computer, Laptop, Tablet
   programmer.code(computer);
   programmer.code(laptop);
   programmer.code(tablet);

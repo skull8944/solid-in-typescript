@@ -1,8 +1,9 @@
 // * Dependency Injection
-// * definition: a design pattern that implements the Dependency Inversion Principle, where the dependencies of a class are injected from the outside
-// * conclusion: Dependency Injection is a way to implement the Dependency Inversion Principle
-// * purpose: to make your architecture more flexible
-// * why it can obey DIP: because the dependencies are injected from the outside, so the high-level module does not depend on the low-level module
+// * 依賴注入
+// * 定義: 一種實現"依賴反轉原則"的設計模式，其中class的依賴關係從外部注入
+// * 總結: 依賴注入是一種實現依賴反轉原則的方式，透過constructor或method注入依賴
+// * 目的: 讓架構更具彈性，降低class之間的耦合度，提高程式碼的可讀性和可維護性
+// * 為什麼符合DIP: 因為依賴是從外部注入的，所以高階模組不再依賴於低階模組
 
 import { container, injectable } from "tsyringe";
 
@@ -15,7 +16,7 @@ export class DB {
 
 @injectable()
 export class Dao {
-  // ! using constructor injection
+  // ! 透過constructor injection來注入DB實例
   constructor(private readonly db: DB) {}
 
   test() {
@@ -25,7 +26,7 @@ export class Dao {
 
 @injectable()
 export class Service {
-  // ! using constructor injection
+  // ! 透過constructor injection來注入Dao實例
   constructor(private readonly dao: Dao) {}
 
   test() {
@@ -35,7 +36,7 @@ export class Service {
 
 @injectable()
 export class Controller {
-  // ! using constructor injection
+  // ! 透過constructor injection來注入Service實例
   constructor(private readonly service: Service) {}
 
   test() {

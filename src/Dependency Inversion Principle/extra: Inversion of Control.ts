@@ -1,8 +1,9 @@
 // * Inversion of Control
-// * definition: "a design principle in which the control of object creation and program flow is inverted to a container or framework";
-// * conclusion: don't new instance by yourself, let the container or framework to new instance
-// * purpose: to make your architecture more flexible
-// * why it can obey DIP: because the control of object creation is inverted to a container or framework, so the high-level module does not depend on the low-level module
+// * 反轉控制
+// * 定義: "一種設計原則，其中對象創建和程序流程的控制被反轉到容器或框架";
+// * 總結: 不要自己new instance，讓容器或框架來創建instance
+// * 目的: 讓架構更具彈性，不用知道instance是如何創建的，只需要知道如何使用
+// * 為什麼符合DIP: 因為對象創建的控制被反轉到容器或框架，所以高階模組不再依賴於低階模組，而是依賴於容器或框架
 
 import { container } from "tsyringe";
 
@@ -17,7 +18,7 @@ class DB {
 class Dao {
   private readonly db: DB;
   constructor() {
-    // ! using container to resolve DB instance
+    // ! 透過container來解析DB實例
     this.db = container.resolve(DB);
   }
 
@@ -29,7 +30,7 @@ class Dao {
 class Service {
   private readonly dao: Dao;
   constructor() {
-    // ! using container to resolve Dao instance
+    // ! 透過container來解析Dao實例
     this.dao = container.resolve(Dao);
   }
 
@@ -41,7 +42,7 @@ class Service {
 class Controller {
   private readonly service: Service;
   constructor() {
-    // ! using container to resolve Service instance
+    // ! 透過container來解析Service實例
     this.service = container.resolve(Service);
   }
 
@@ -50,7 +51,7 @@ class Controller {
   }
 }
 
-// ! register all classes to container
+// ! 透過container來註冊各個class
 container.register(DB, { useClass: DB });
 container.register(Dao, { useClass: Dao });
 container.register(Service, { useClass: Service });
