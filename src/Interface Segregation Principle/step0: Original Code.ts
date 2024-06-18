@@ -4,12 +4,12 @@
 // * 總結: 將大型介面拆分成更小、更具體的介面，這樣客戶端只需要知道他們相對應的方法
 // * 目的: 避免客戶端依賴它們不使用的方法，減少不必要的複雜度
 
-export interface Engineer {
+export interface IEngineer {
   code(): void;
   codeReview(): void;
 }
 
-export class ResearchAndDevelopment implements Engineer {
+export class ResearchAndDevelopment implements IEngineer {
   code() {
     console.log("RD Coding...");
   }
@@ -19,7 +19,7 @@ export class ResearchAndDevelopment implements Engineer {
   }
 }
 
-export class TechLead implements Engineer {
+export class TechLead implements IEngineer {
   code() {
     console.log("TL Coding...");
   }
@@ -29,7 +29,7 @@ export class TechLead implements Engineer {
   }
 }
 
-const step0 = () => {
+export const step0 = () => {
   const rd = new ResearchAndDevelopment();
   const tl = new TechLead();
 

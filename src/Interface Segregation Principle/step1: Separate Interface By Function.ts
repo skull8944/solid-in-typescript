@@ -4,7 +4,7 @@
 // * 總結: 將大型介面拆分成更小、更具體的介面，這樣客戶端只需要知道他們相對應的方法
 // * 目的: 避免客戶端依賴它們不使用的方法，減少不必要的複雜度
 
-// ! step1: 跟據不同的function來把interface拆分更細
+// * step1: 跟據不同的function來把interface拆分更細
 
 export interface ICoder {
   code(): void;
