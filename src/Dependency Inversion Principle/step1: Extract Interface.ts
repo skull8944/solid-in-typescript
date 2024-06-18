@@ -42,7 +42,7 @@ export class Programmer {
 
 export const step1 = () => {
   const programmer = new Programmer();
-  
+
   // ! now still need to know how to create the instance
   const computer = new Computer();
   const laptop = new Laptop();

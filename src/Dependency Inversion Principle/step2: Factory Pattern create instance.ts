@@ -3,7 +3,7 @@
 // *             "abstractions should not depend on details. Details should depend on abstractions."
 // * purpose: to make your architecture more flexible
 
-// ! step2: using Factory Pattern to create instance
+// * step2: using Factory Pattern to create instance
 
 export interface IProgrammable {
   coding(): void;
