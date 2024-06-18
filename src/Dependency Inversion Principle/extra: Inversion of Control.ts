@@ -18,7 +18,7 @@ class DB {
 class Dao {
   private readonly db: DB;
   constructor() {
-    // ! 透過container來解析DB實例
+    // * 透過container來解析DB實例
     this.db = container.resolve(DB);
   }
 
@@ -30,7 +30,7 @@ class Dao {
 class Service {
   private readonly dao: Dao;
   constructor() {
-    // ! 透過container來解析Dao實例
+    // * 透過container來解析Dao實例
     this.dao = container.resolve(Dao);
   }
 
@@ -42,7 +42,7 @@ class Service {
 class Controller {
   private readonly service: Service;
   constructor() {
-    // ! 透過container來解析Service實例
+    // * 透過container來解析Service實例
     this.service = container.resolve(Service);
   }
 
@@ -51,7 +51,7 @@ class Controller {
   }
 }
 
-// ! 透過container來註冊各個class
+// * 透過container來註冊各個class
 container.register(DB, { useClass: DB });
 container.register(Dao, { useClass: Dao });
 container.register(Service, { useClass: Service });

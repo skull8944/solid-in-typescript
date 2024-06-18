@@ -4,7 +4,7 @@
 // * 總結: 透過抽象來減少模組之間的耦合度
 // * 目的: 讓架構更具彈性，容易擴展和維護
 
-// ! step1: 抽象出一個interface，讓高階模組(Programmer)不再依賴於低階模組(Computer, Laptop, Tablet)
+// * step1: 抽象出一個interface，讓高階模組(Programmer)不再依賴於低階模組(Computer, Laptop, Tablet)
 
 export interface IProgrammable {
   coding(): void;
@@ -35,17 +35,19 @@ export class Tablet implements IProgrammable {
 }
 
 export class Programmer {
-  // ! 現在只依賴於IProgrammable interface而不是具體的Computer, Laptop, Tablet
+  // * 現在只依賴於IProgrammable interface而不是具體的Computer, Laptop, Tablet
   code(device: IProgrammable) {
     device.coding();
   }
 }
 
 export const step1 = () => {
+  const programmer = new Programmer();
+
+  // ! 現在仍需要知道如何建立Computer, Laptop, Tablet
   const computer = new Computer();
   const laptop = new Laptop();
   const tablet = new Tablet();
-  const programmer = new Programmer();
 
   programmer.code(computer);
   programmer.code(laptop);

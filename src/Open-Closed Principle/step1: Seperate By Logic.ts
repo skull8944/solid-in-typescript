@@ -4,7 +4,7 @@
 // * 總結: 使用抽象類別或介面來使程式碼對擴展開放，對修改封閉。
 // * 目的： 增加程式碼的可擴展性，降低程式碼的維護成本
 
-// ! Step1: 跟據不同的邏輯來拆分職責
+// * Step1: 跟據不同的邏輯來拆分職責
 
 // LA logic
 const doLaLogic = () => {
@@ -19,6 +19,8 @@ const doNaLogic = () => {
 export const step1 = (region: "LA" | "NA") => {
   console.log(`doing logic`);
 
+  // * 現在只需要知道要執行哪個邏輯，不需要知道邏輯內容
+  // ! 但新增其他區域的邏輯時，仍需要修改此function
   switch (region) {
     case "LA":
       doLaLogic();

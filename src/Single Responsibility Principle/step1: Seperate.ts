@@ -7,7 +7,7 @@
 // ! 單一職責原則應該要根據不同的scope來拆分職責
 // ! Ex: 根據class, function, module, package, project, service, domain, layer, ...
 
-// ! step1: 跟據不同的class來拆分職責
+// * step1: 跟據不同的class來拆分職責
 
 class Account {
   constructor(id: string) {
@@ -39,7 +39,8 @@ class AccountService {
     const { id, img } = body;
     const account = new Account(id);
 
-    // ! Right way to do it
+    // * 現在把上傳圖片的邏輯拆分到FileService
+    // * 這樣AccountService只負責處理Account相關的邏輯
     account.imageUrl = await this.fileService.uploadImage(img);
 
     await this.dao.save(account);

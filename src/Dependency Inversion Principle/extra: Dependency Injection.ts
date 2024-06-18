@@ -16,7 +16,7 @@ export class DB {
 
 @injectable()
 export class Dao {
-  // ! 透過constructor injection來注入DB實例
+  // * 透過constructor injection來注入DB實例
   constructor(private readonly db: DB) {}
 
   test() {
@@ -26,7 +26,7 @@ export class Dao {
 
 @injectable()
 export class Service {
-  // ! 透過constructor injection來注入Dao實例
+  // * 透過constructor injection來注入Dao實例
   constructor(private readonly dao: Dao) {}
 
   test() {
@@ -36,7 +36,7 @@ export class Service {
 
 @injectable()
 export class Controller {
-  // ! 透過constructor injection來注入Service實例
+  // * 透過constructor injection來注入Service實例
   constructor(private readonly service: Service) {}
 
   test() {
